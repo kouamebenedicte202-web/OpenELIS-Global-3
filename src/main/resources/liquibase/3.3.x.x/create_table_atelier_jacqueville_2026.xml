@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    
+
+
+    <changeSet id="create_table_atelier_jacqueville_2026" author="Gnahore">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="atelier_jacqueville_2026" schemaName="clinlims"/>
+            </not>
+        </preConditions>
+        <createTable tableName="atelier_jacqueville_2026" schemaName="clinlims">
+            <column name="id" type="integer" defaultValueComputed="nextval('atelier_jacqueville_2026_seq')">
+                <constraints primaryKey="true"/>
+            </column>
+           
+            <column name="nombre_participant" type="smallint" defaultValueNumeric="1">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_fin" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+   
+</databaseChangeLog>
